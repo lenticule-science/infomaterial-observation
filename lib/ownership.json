@@ -1,0 +1,7 @@
+{
+  "kind": "ownership-law",
+  "node": "infomaterial-observation",
+  "owners": ["obsmetrological-services-section"],
+  "owns": ["finite filesystem material observation", "placement-neutral typed RMN Merkle topology", "provider-local observation receipts"],
+  "doesNotOwn": ["observed territory", "conductor assay", "conductor resolution", "semantic classification", "enterprise decomposition", "EDA synthesis", "filesystem mutation"]
+}

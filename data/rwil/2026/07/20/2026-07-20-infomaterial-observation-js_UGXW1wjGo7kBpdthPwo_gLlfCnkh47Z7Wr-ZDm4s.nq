@@ -1,0 +1,3 @@
+<ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> <urn:emsenn:rwil:category> "infomaterial-patch-observation.receipt" <ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> .
+<ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> <urn:emsenn:rwil:semantic-object> <ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> <ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> .
+<urn:ame:infomaterial-observation> <urn:emsenn:rwil:recorded> <ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> <ni:///sha-256;FMU9XiuJC-DHLOlwNQR2roeuZZMzu9izfEV9rmDY1-o> .

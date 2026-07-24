@@ -1,0 +1,67 @@
+{
+  "name": "@emsenn/infomaterial-observation",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Finite infomaterial patch metrology: placement-neutral RMN Merkle material and canonical RDF topology for one independently retryable patch.",
+  "exports": {
+    ".": "./src/material-merkle.mjs",
+    "./client": "./src/client.mjs",
+    "./receipt": "./src/receipt.mjs"
+  },
+  "bin": {
+    "serve-infomaterial-observation-a2a": "./bin/server.mjs",
+    "solicit-service": "./src/contract-infomaterial-observation.mjs",
+    "invoke-service": "./src/contract-infomaterial-observation.mjs"
+  },
+  "scripts": {
+    "check": "node --check src/material-merkle.mjs && node --check src/receipt.mjs && node --check src/topology-projection.mjs && node --check src/execute-observation.mjs && node --check src/client.mjs && node --check src/law.mjs && node --check src/contract-infomaterial-observation.mjs && node --check bin/execute-a2a-task.mjs && node --check bin/server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@a2a-js/sdk": "1.0.0-beta.0",
+    "@emsenn/a2a-contracted-agent-service": "file:../../../../../red-cup-engineering/services/web-services-section/services/a2a-services-section/services/a2a-contracted-agent-service",
+    "@emsenn/a2a-rmn-part-service": "file:../../../../../red-cup-engineering/services/web-services-section/services/a2a-services-section/services/a2a-rmn-part-service",
+    "@emsenn/a2a-rmn-task-client-service": "file:../../../../../red-cup-engineering/services/web-services-section/services/a2a-services-section/services/a2a-rmn-task-client-service",
+    "@emsenn/rmn-semantic-conformance": "file:../rmn-semantic-conformance",
+    "@emsenn/rwil-rdf-services": "file:../rwil-rdf-services"
+  },
+  "x-agentic-metro-enterprise": {
+    "node-id": "infomaterial-observation",
+    "actor": "urn:ame:infomaterial-observation",
+    "organizational-kind": "micro-enterprise",
+    "owners": [
+      "obsmetrological-services-section"
+    ],
+    "membrane": {
+      "law": "lib/",
+      "lasting-instances": "content/",
+      "append-only-instances": "data/"
+    },
+    "admission": "ActivityStreams Offer and Accept for one finite, absolute, read-only regular-file, symbolic-link, or directory patch observation bound to exact resource ceilings",
+    "refusal": "relative or unsupported patch, exclusions, caller-selected traversal semantics, resource-ceiling breach, concurrent mutation, absent smart-account binding, or foreign write authority",
+    "operation-catalog": {
+      "solicit-service": {
+        "contract": "ni:///sha-256;tdRdU1K63O92bYoaa6D66YNCXmL0x9UuKUjExwZ-3ms",
+        "accepts": "ActivityStreams Offer<FiniteInfomaterialPatchObservationRequest>",
+        "returns": "ActivityStreams Offer<ExecutableServiceOffer>|Reject"
+      },
+      "invoke-service": {
+        "contract": "ni:///sha-256;tdRdU1K63O92bYoaa6D66YNCXmL0x9UuKUjExwZ-3ms",
+        "accepts": "ActivityStreams Accept<ServiceContract>",
+        "returns": "ActivityStreams Accept<InfomaterialPatchObservation>|Reject"
+      },
+      "serve-infomaterial-observation-a2a": {
+        "contract": "ni:///sha-256;tdRdU1K63O92bYoaa6D66YNCXmL0x9UuKUjExwZ-3ms",
+        "protocol": "A2A 1.0 via official JavaScript SDK 1.0.0-beta.0 development profile",
+        "accepts": "application/rmn+cbor territory-relative finite patch task",
+        "returns": "application/rmn+cbor canonical patch observation",
+        "legacyCompatibility": false
+      }
+    }
+  }
+}

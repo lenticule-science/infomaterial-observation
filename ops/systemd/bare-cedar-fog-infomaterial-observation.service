@@ -1,0 +1,29 @@
+[Unit]
+Description=Bare Cedar Fog bounded infomaterial patch observation A2A provider
+After=network-online.target rwil-rdf-services.service
+Wants=network-online.target
+Requires=rwil-rdf-services.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/emsenn/info/lib/emsenn/services/561-group/services/lenticule-science/services/obsmetrological-services-section/services/infomaterial-observation
+Environment=HOST=127.0.0.1
+Environment=PORT=19849
+Environment=BASE_URL=http://127.0.0.1:19849
+Environment=RWIL_RDF_AGENT=http://127.0.0.1:19764/.well-known/agent-card.json
+Environment=INFOMATERIAL_TERRITORY_ROOT=/home/emsenn/info/lib/emsenn/services/board-of-directors/services/executive-office/services/leader-movement-team/content/documents/articles
+Environment=AGENT_CARD_SIGNING_KEY=/home/emsenn/info/lib/emsenn/services/561-group/services/lenticule-science/services/obsmetrological-services-section/services/infomaterial-observation/data/agent-card-signing/ed25519-private.pem
+Environment=AGENT_CARD_JWKS=/home/emsenn/info/lib/emsenn/services/561-group/services/lenticule-science/services/obsmetrological-services-section/services/infomaterial-observation/content/agent-card-signing/jwks.json
+Environment=AGENT_CARD_SIGNING_KID=infomaterial-observation-2026-07-21
+ExecStart=/home/emsenn/.config/nvm/versions/node/v24.13.1/bin/node bin/server.mjs
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadOnlyPaths=/home/emsenn/info/lib/emsenn/services/board-of-directors/services/executive-office/services/leader-movement-team/content/documents/articles
+ReadWritePaths=/home/emsenn/info/lib/emsenn/services/561-group/services/lenticule-science/services/obsmetrological-services-section/services/infomaterial-observation/data
+
+[Install]
+WantedBy=default.target
