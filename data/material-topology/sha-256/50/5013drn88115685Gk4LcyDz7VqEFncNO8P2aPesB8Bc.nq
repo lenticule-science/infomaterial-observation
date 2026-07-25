@@ -1,0 +1,7 @@
+<ni:///sha-256;2H7GOBqqscU9TyZZ4qshJpPyBGd_oWfXqBjjJYHN51o> <urn:emsenn:infomaterial:content> <ni:///sha-256;kiHqxsiNrRf-iGRV5jE13CyIr6Q8PvhkENvT9al_r-E> <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
+<ni:///sha-256;2H7GOBqqscU9TyZZ4qshJpPyBGd_oWfXqBjjJYHN51o> <urn:emsenn:infomaterial:kind> "file" <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
+<ni:///sha-256;2H7GOBqqscU9TyZZ4qshJpPyBGd_oWfXqBjjJYHN51o> <urn:emsenn:infomaterial:mode> "33188"^^<http://www.w3.org/2001/XMLSchema#integer> <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
+<ni:///sha-256;2H7GOBqqscU9TyZZ4qshJpPyBGd_oWfXqBjjJYHN51o> <urn:emsenn:infomaterial:profile> "org.emsenn.infomaterial.merkle.v2" <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
+<ni:///sha-256;2H7GOBqqscU9TyZZ4qshJpPyBGd_oWfXqBjjJYHN51o> <urn:emsenn:infomaterial:size> "1656"^^<http://www.w3.org/2001/XMLSchema#integer> <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
+<ni:///sha-256;i-UTiSiMDxJ5qE-WTCnaxQlEHICYUVdoPADFvUSXy34> <urn:emsenn:infomaterial:material> <ni:///sha-256;2H7GOBqqscU9TyZZ4qshJpPyBGd_oWfXqBjjJYHN51o> <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
+<ni:///sha-256;i-UTiSiMDxJ5qE-WTCnaxQlEHICYUVdoPADFvUSXy34> <urn:emsenn:infomaterial:path> "." <ni:///sha-256;EjLvLY8JA6Y1JZpwa_Ya4wtORxQpfiix1FbxcxEV7wI> .
