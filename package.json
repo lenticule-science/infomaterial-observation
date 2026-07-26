@@ -27,7 +27,7 @@
     "@emsenn/a2a-contracted-agent-service": "file:../../../../../red-cup-engineering/services/web-services-section/services/a2a-services-section/services/a2a-contracted-agent-service",
     "@emsenn/a2a-rmn-part-service": "file:../../../../../red-cup-engineering/services/web-services-section/services/a2a-services-section/services/a2a-rmn-part-service",
     "@emsenn/a2a-rmn-task-client-service": "file:../../../../../red-cup-engineering/services/web-services-section/services/a2a-services-section/services/a2a-rmn-task-client-service",
-    "@emsenn/rmn-semantic-conformance": "file:../rmn-semantic-conformance",
+    "@emsenn/rmn-semantic-conformance": "file:../../../../../red-cup-engineering/services/model-services-section/services/relational-model-services-section/services/relational-model-notation-services-section/services/rmn-conformance-service",
     "@emsenn/rwil-rdf-services": "file:../rwil-rdf-services"
   },
   "x-agentic-metro-enterprise": {
