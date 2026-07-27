@@ -1,8 +1,8 @@
 [Unit]
 Description=Cold-red-gate finite infomaterial observation A2A provider
-After=network-online.target rwil-rdf-services.service
+After=network-online.target rwil-rdf-projection-service.service
 Wants=network-online.target
-Requires=rwil-rdf-services.service
+Requires=rwil-rdf-projection-service.service
 
 [Service]
 Type=simple

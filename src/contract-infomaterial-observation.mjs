@@ -2,9 +2,9 @@
 import { readFileSync } from "node:fs";
 import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { semanticId } from "@emsenn/rmn-semantic-conformance";
-import { encodeRelationalValue } from "@emsenn/rmn-semantic-conformance/relational-value";
-import { createSettlementStore } from "@emsenn/rwil-rdf-services/client";
+import { semanticId } from "@red-cup-engineering/rmn-semantic-conformance";
+import { encodeRelationalValue } from "@red-cup-engineering/rmn-semantic-conformance/relational-value";
+import { createSettlementStore } from "@lenticule-science/rwil-rdf-projection-service/client";
 import { INFOMATERIAL_OBSERVATION_LAW } from "./law.mjs";
 import { executeInfomaterialObservation } from "./execute-observation.mjs";
 
@@ -42,7 +42,7 @@ async function handle(operation, activity, at) {
   // Establish every provider-owned dependency before touching customer
   // territory.  A missing RWIL seam must refuse immediately, not after an
   // expensive observation has already produced an unreceipted artifact.
-  const store = createSettlementStore({ settlementRoot: ROOT, dataRoot: join(ROOT, "data"), agentUrl: process.env.RWIL_RDF_AGENT });
+  const store = createSettlementStore({ settlementRoot: ROOT, agentUrl: process.env.RWIL_RDF_AGENT });
   const result = await executeInfomaterialObservation({ patchRoot: request.patchRoot, maximumEntries: request.maximumEntries, maximumBytes: BigInt(request.maximumBytes), observedAt: at, providerDataRoot: join(ROOT, "data"), store });
   return response("Accept", activity, result.receipt, at);
 }

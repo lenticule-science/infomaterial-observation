@@ -2,8 +2,8 @@ import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { lstat, opendir, readlink } from "node:fs/promises";
 import { basename, resolve } from "node:path";
-import { semanticBytes, semanticId } from "@emsenn/rmn-semantic-conformance";
-import { encodeRelationalValue } from "@emsenn/rmn-semantic-conformance/relational-value";
+import { semanticBytes, semanticId } from "@red-cup-engineering/rmn-semantic-conformance";
+import { encodeRelationalValue } from "@red-cup-engineering/rmn-semantic-conformance/relational-value";
 
 export const MATERIAL_PROFILE = "org.emsenn.infomaterial.merkle.v2";
 const byteOrder = (left, right) => Buffer.compare(Buffer.from(left, "utf8"), Buffer.from(right, "utf8"));
