@@ -27,63 +27,7 @@
     "@red-cup-engineering/a2a-contracted-agent-service": "2.0.4",
     "@red-cup-engineering/a2a-rmn-part-service": "1.0.0",
     "@red-cup-engineering/a2a-rmn-task-client-service": "1.1.0",
-    "@red-cup-engineering/rmn-semantic-conformance": "6.0.0",
+    "@red-cup-engineering/rmn-semantic-conformance": "6.0.1",
     "@lenticule-science/rwil-rdf-projection-service": "1.0.2"
-  },
-  "x-agentic-metro-enterprise": {
-    "node-id": "infomaterial-observation",
-    "actor": "urn:ame:infomaterial-observation",
-    "organizational-kind": "micro-enterprise",
-    "owners": [
-      "obsmetrological-services-section"
-    ],
-    "membrane": {
-      "law": "lib/",
-      "lasting-instances": "content/",
-      "append-only-instances": "data/"
-    },
-    "admission": "ActivityStreams Offer and Accept for one finite, absolute, read-only regular-file, symbolic-link, or directory patch observation bound to exact resource ceilings",
-    "refusal": "relative or unsupported patch, exclusions, caller-selected traversal semantics, resource-ceiling breach, concurrent mutation, absent smart-account binding, or foreign write authority",
-    "operation-catalog": {
-      "solicit-service": {
-        "contract": "ni:///sha-256;tdRdU1K63O92bYoaa6D66YNCXmL0x9UuKUjExwZ-3ms",
-        "accepts": "ActivityStreams Offer<FiniteInfomaterialPatchObservationRequest>",
-        "returns": "ActivityStreams Offer<ExecutableServiceOffer>|Reject"
-      },
-      "invoke-service": {
-        "contract": "ni:///sha-256;tdRdU1K63O92bYoaa6D66YNCXmL0x9UuKUjExwZ-3ms",
-        "accepts": "ActivityStreams Accept<ServiceContract>",
-        "returns": "ActivityStreams Accept<InfomaterialPatchObservation>|Reject"
-      },
-      "serve-infomaterial-observation-a2a": {
-        "contract": "ni:///sha-256;tdRdU1K63O92bYoaa6D66YNCXmL0x9UuKUjExwZ-3ms",
-        "protocol": "A2A 1.0 via official JavaScript SDK 1.0.0-beta.0 development profile",
-        "accepts": "application/rmn+cbor territory-relative finite patch task",
-        "returns": "application/rmn+cbor canonical patch observation",
-        "legacyCompatibility": false
-      }
-    }
-  },
-  "x-semiotic-voxel": {
-    "profile": "org.harmonious-union.semiotic-voxel.v1",
-    "owner": "lenticule-science",
-    "kind": "actor",
-    "actor": "urn:ame:infomaterial-observation",
-    "operations": [
-      "invoke-service",
-      "serve-infomaterial-observation-a2a",
-      "solicit-service"
-    ],
-    "capabilities": [
-      {
-        "capability": "infomaterial-observation",
-        "faces": [
-          "invoke-service",
-          "serve-infomaterial-observation-a2a",
-          "solicit-service"
-        ]
-      }
-    ],
-    "package": "@lenticule-science/infomaterial-observation"
   }
 }
