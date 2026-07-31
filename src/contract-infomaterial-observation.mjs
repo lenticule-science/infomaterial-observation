@@ -4,7 +4,7 @@ import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { semanticId } from "@red-cup-engineering/rmn-semantic-conformance";
 import { encodeRelationalValue } from "@red-cup-engineering/rmn-semantic-conformance/relational-value";
-import { createSettlementStore } from "@lenticule-science/rwil-rdf-projection-service/client";
+import { createSettlementStore } from "@lenticule-science/witness-journal-rdf-projection-service/client";
 import { INFOMATERIAL_OBSERVATION_LAW } from "./law.mjs";
 import { executeInfomaterialObservation } from "./execute-observation.mjs";
 
