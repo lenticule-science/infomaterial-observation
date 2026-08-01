@@ -1,5 +1,4 @@
 import { createTopologyProjection } from "./topology-projection.mjs";
-import { INFOMATERIAL_OBSERVATION_LAW } from "./law.mjs";
 import { observeInfomaterial } from "./material-merkle.mjs";
 
 export async function executeInfomaterialObservation({ patchRoot, maximumEntries, maximumBytes, observedAt, providerDataRoot, store }) {
@@ -11,7 +10,7 @@ export async function executeInfomaterialObservation({ patchRoot, maximumEntries
     const result = await observeInfomaterial(patchRoot, { maximumEntries, maximumBytes, onOccurrence: topologyProjection.record });
     preparedTopology = await topologyProjection.prepare({ graph: result.semanticId, expectedEntries: result.observation.entries });
     const topology = await preparedTopology.commit();
-    const receipt = { ...result.observation, semanticId: result.semanticId, canonicalBytesBase64: result.canonicalBytes.toString("base64"), topologyProjection: topology, observedAt, patchRoot, globalInstantClaimed: false, territorialCoverClaimed: false, conductorClaimed: false, customerMutation: false, provider: "urn:ame:infomaterial-observation", law: INFOMATERIAL_OBSERVATION_LAW.id, elapsedNanoseconds: process.hrtime.bigint() - started };
+    const receipt = { ...result.observation, semanticId: result.semanticId, canonicalBytesBase64: result.canonicalBytes.toString("base64"), topologyProjection: topology, observedAt, patchRoot, globalInstantClaimed: false, territorialCoverClaimed: false, conductorClaimed: false, customerMutation: false, provider: "urn:ame:infomaterial-observation", elapsedNanoseconds: process.hrtime.bigint() - started };
     await store.record({ category: "infomaterial-patch-observation.receipt", recordedAt: observedAt, record: receipt });
     return { ...result, receipt };
   } catch (error) {

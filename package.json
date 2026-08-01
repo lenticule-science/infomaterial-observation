@@ -15,7 +15,7 @@
     "invoke-service": "./src/contract-infomaterial-observation.mjs"
   },
   "scripts": {
-    "check": "node --check src/material-merkle.mjs && node --check src/receipt.mjs && node --check src/topology-projection.mjs && node --check src/execute-observation.mjs && node --check src/client.mjs && node --check src/law.mjs && node --check src/contract-infomaterial-observation.mjs && node --check scripts/execute-a2a-task.mjs && node --check scripts/server.mjs",
+    "check": "node --check src/material-merkle.mjs && node --check src/receipt.mjs && node --check src/topology-projection.mjs && node --check src/execute-observation.mjs && node --check src/client.mjs && node --check src/contract-infomaterial-observation.mjs && node --check scripts/execute-a2a-task.mjs && node --check scripts/server.mjs",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run check && npm test"
   },
