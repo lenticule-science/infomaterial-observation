@@ -1,6 +1,6 @@
 {
   "name": "@lenticule-science/infomaterial-observation",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "type": "module",
   "description": "Finite infomaterial patch metrology: placement-neutral RMN Merkle material and canonical RDF topology for one independently retryable patch.",
@@ -24,10 +24,10 @@
   },
   "dependencies": {
     "@a2a-js/sdk": "1.0.0-beta.0",
-    "@red-cup-engineering/a2a-contracted-agent-service": "2.0.4",
-    "@red-cup-engineering/a2a-rmn-part-service": "1.0.0",
-    "@red-cup-engineering/a2a-rmn-task-client-service": "1.1.0",
-    "@red-cup-engineering/rmn-semantic-conformance": "6.0.1",
-    "@lenticule-science/witness-journal-rdf-projection-service": "1.0.2"
+    "@red-cup-engineering/a2a-contracted-agent-service": "2.0.5",
+    "@red-cup-engineering/a2a-rmn-part-service": "1.0.1",
+    "@red-cup-engineering/a2a-rmn-task-client-service": "1.1.1",
+    "@red-cup-engineering/rmn-semantic-conformance": "6.0.2",
+    "@lenticule-science/witness-journal-rdf-projection-service": "1.0.3"
   }
 }

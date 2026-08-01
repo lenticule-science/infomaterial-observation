@@ -1,8 +1,8 @@
 [Unit]
 Description=Bare Cedar Fog bounded infomaterial patch observation A2A provider
-After=network-online.target rwil-rdf-projection-service.service
+After=network-online.target witness-journal-rdf-projection-service.service
 Wants=network-online.target
-Requires=rwil-rdf-projection-service.service
+Requires=witness-journal-rdf-projection-service.service
 
 [Service]
 Type=simple
@@ -10,7 +10,7 @@ WorkingDirectory=/home/emsenn/info/lib/emsenn/services/561-group/services/lentic
 Environment=HOST=127.0.0.1
 Environment=PORT=19849
 Environment=BASE_URL=http://127.0.0.1:19849
-Environment=RWIL_RDF_AGENT=http://127.0.0.1:19764/.well-known/agent-card.json
+Environment=WITNESS_JOURNAL_RDF_AGENT=http://127.0.0.1:19764/.well-known/agent-card.json
 Environment=INFOMATERIAL_TERRITORY_ROOT=/home/emsenn/info/lib/emsenn/services/561-group/services/board-of-directors/services/executive-office/services/leader-movement-team/content/documents/articles
 Environment=AGENT_CARD_SIGNING_KEY=/home/emsenn/info/lib/emsenn/services/561-group/services/lenticule-science/services/obsmetrological-services-section/services/infomaterial-observation/data/agent-card-signing/ed25519-private.pem
 Environment=AGENT_CARD_JWKS=/home/emsenn/info/lib/emsenn/services/561-group/services/lenticule-science/services/obsmetrological-services-section/services/infomaterial-observation/content/agent-card-signing/jwks.json

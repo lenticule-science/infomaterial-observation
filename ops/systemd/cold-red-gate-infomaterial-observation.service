@@ -1,8 +1,8 @@
 [Unit]
 Description=Cold-red-gate finite infomaterial observation A2A provider
-After=network-online.target rwil-rdf-projection-service.service
+After=network-online.target witness-journal-rdf-projection-service.service
 Wants=network-online.target
-Requires=rwil-rdf-projection-service.service
+Requires=witness-journal-rdf-projection-service.service
 
 [Service]
 Type=simple
@@ -10,7 +10,7 @@ WorkingDirectory=%h/services/infomaterial-observation
 Environment=PORT=18794
 Environment=HOST=127.0.0.1
 Environment=BASE_URL=http://127.0.0.1:18794
-Environment=RWIL_RDF_AGENT=http://127.0.0.1:8787/.well-known/agent-card.json
+Environment=WITNESS_JOURNAL_RDF_AGENT=http://127.0.0.1:8787/.well-known/agent-card.json
 Environment=INFOMATERIAL_TERRITORY_ROOT=%h/services/rmn-semantic-conformance/content/contracts
 Environment=AGENT_CARD_SIGNING_KEY=%h/services/infomaterial-observation/data/agent-card-signing/ed25519-private.pem
 Environment=AGENT_CARD_JWKS=%h/services/infomaterial-observation/content/agent-card-signing/jwks.json

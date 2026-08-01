@@ -3,7 +3,7 @@ import { INFOMATERIAL_OBSERVATION_LAW } from "./law.mjs";
 import { observeInfomaterial } from "./material-merkle.mjs";
 
 export async function executeInfomaterialObservation({ patchRoot, maximumEntries, maximumBytes, observedAt, providerDataRoot, store }) {
-  if (!store?.record) throw new Error("contracted RWIL/RDF store is required before observation");
+  if (!store?.record) throw new Error("contracted witness-journal RDF store is required before observation");
   const started = process.hrtime.bigint();
   const topologyProjection = await createTopologyProjection({ observedRoot: patchRoot, providerDataRoot });
   let preparedTopology;

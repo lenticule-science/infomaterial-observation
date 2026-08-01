@@ -31,7 +31,7 @@ async function handle(operation, activity, at) {
   if (operation === "solicit-service") {
     if (activity?.["@context"] !== CONTEXT || activity.type !== "Offer" || activity.target !== ACTOR || activity.object?.type !== "ServiceSolicitation") throw new Error("ActivityStreams Offer<ServiceSolicitation> targeted to this provider required");
     const request = validateRequest(requestOf(activity));
-    return response("Offer", activity, { type: "ExecutableServiceOffer", law: INFOMATERIAL_OBSERVATION_LAW.id, request, requestIdentity: id(request), operation: "invoke-service", effects: ["observe-infomaterial", "write-provider-rwil"], customerMutation: false }, at);
+    return response("Offer", activity, { type: "ExecutableServiceOffer", law: INFOMATERIAL_OBSERVATION_LAW.id, request, requestIdentity: id(request), operation: "invoke-service", effects: ["observe-infomaterial", "write-provider-witness-journal"], customerMutation: false }, at);
   }
   if (operation !== "invoke-service" || activity?.["@context"] !== CONTEXT || activity.type !== "Accept" || activity.target !== ACTOR) throw new Error("ActivityStreams Accept<ServiceContract> targeted to this provider required");
   const offer = activity.object?.offer;
@@ -40,9 +40,9 @@ async function handle(operation, activity, at) {
   if (offer.object.requestIdentity !== id(request)) throw new Error("request identity changed after offer");
   validateCapability(activity.object?.capability, offer, activity.actor, at);
   // Establish every provider-owned dependency before touching customer
-  // territory.  A missing RWIL seam must refuse immediately, not after an
+  // territory.  A missing WitnessJournal seam must refuse immediately, not after an
   // expensive observation has already produced an unreceipted artifact.
-  const store = createSettlementStore({ settlementRoot: ROOT, agentUrl: process.env.RWIL_RDF_AGENT });
+  const store = createSettlementStore({ settlementRoot: ROOT, agentUrl: process.env.WITNESS_JOURNAL_RDF_AGENT });
   const result = await executeInfomaterialObservation({ patchRoot: request.patchRoot, maximumEntries: request.maximumEntries, maximumBytes: BigInt(request.maximumBytes), observedAt: at, providerDataRoot: join(ROOT, "data"), store });
   return response("Accept", activity, result.receipt, at);
 }
