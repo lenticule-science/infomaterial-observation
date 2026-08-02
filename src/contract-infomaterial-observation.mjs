@@ -2,9 +2,9 @@
 import { readFileSync } from "node:fs";
 import { dirname, isAbsolute, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { semanticId } from "@red-cup-engineering/rmn-semantic-conformance";
-import { encodeRelationalValue } from "@red-cup-engineering/rmn-semantic-conformance/relational-value";
-import { createSettlementStore } from "@lenticule-science/witness-journal-rdf-projection-service/client";
+import { semanticId } from "@red-cup-engineering/relation-model-notation-runtime";
+import { encodeRelationalValue } from "@red-cup-engineering/relation-model-notation-runtime/relational-value";
+import { createSettlementStore } from "@red-cup-engineering/witness-journal-rdf-projection-service/client";
 import { executeInfomaterialObservation } from "./execute-observation.mjs";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");

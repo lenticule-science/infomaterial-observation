@@ -6,8 +6,10 @@
   "description": "Finite infomaterial patch metrology: placement-neutral RMN Merkle material and canonical RDF topology for one independently retryable patch.",
   "exports": {
     ".": "./src/material-merkle.mjs",
+    "./material-merkle": "./src/material-merkle.mjs",
     "./client": "./src/client.mjs",
-    "./receipt": "./src/receipt.mjs"
+    "./receipt": "./src/receipt.mjs",
+    "./package.json": "./package.json"
   },
   "bin": {
     "serve-infomaterial-observation-a2a": "./scripts/server.mjs",
@@ -27,7 +29,7 @@
     "@red-cup-engineering/a2a-contracted-agent-service": "2.0.5",
     "@red-cup-engineering/a2a-rmn-part-service": "1.0.1",
     "@red-cup-engineering/a2a-rmn-task-client-service": "1.1.1",
-    "@red-cup-engineering/rmn-semantic-conformance": "6.0.2",
-    "@lenticule-science/witness-journal-rdf-projection-service": "1.0.3"
+    "@red-cup-engineering/relation-model-notation-runtime": "7.0.0",
+    "@red-cup-engineering/witness-journal-rdf-projection-service": "1.1.0"
   }
 }

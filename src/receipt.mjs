@@ -1,5 +1,5 @@
-import { checkTerm, decodeSemantic, semanticId } from "@red-cup-engineering/rmn-semantic-conformance";
-import { decodeRelationalValue } from "@red-cup-engineering/rmn-semantic-conformance/relational-value";
+import { checkTerm, decodeSemantic, semanticId } from "@red-cup-engineering/relation-model-notation-runtime";
+import { decodeRelationalValue } from "@red-cup-engineering/relation-model-notation-runtime/relational-value";
 import { MATERIAL_PROFILE } from "./material-merkle.mjs";
 
 const NI = /^ni:\/\/\/sha-256;[A-Za-z0-9_-]{43}$/u;
