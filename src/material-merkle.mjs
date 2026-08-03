@@ -2,20 +2,29 @@ import { createHash } from "node:crypto";
 import { createReadStream } from "node:fs";
 import { lstat, opendir, readlink } from "node:fs/promises";
 import { basename, resolve } from "node:path";
-import { semanticBytes, semanticId } from "@red-cup-engineering/relation-model-notation-runtime";
+import { semanticBytes } from "@red-cup-engineering/relation-model-notation-runtime";
 import { encodeRelationalValue } from "@red-cup-engineering/relation-model-notation-runtime/relational-value";
+import { jsonId } from "./semantic-identity.mjs";
 
 export const MATERIAL_PROFILE = "org.emsenn.infomaterial.merkle.v2";
 const byteOrder = (left, right) => Buffer.compare(Buffer.from(left, "utf8"), Buffer.from(right, "utf8"));
 
+function materialObjectKind(value) {
+  if (value?.type === "InfomaterialPatchObservation") return "lenticule.infomaterial.patch-observation";
+  const kinds = new Set(["file", "symbolic-link", "directory", "occurrence"]);
+  if (kinds.has(value?.kind)) return `lenticule.infomaterial.${value.kind}-node`;
+  throw new TypeError("infomaterial value lacks an admitted semantic object kind");
+}
 function typed(value) {
   const encoded = encodeRelationalValue(value);
   const term = ["ascribe", encoded.type, encoded.term];
-  return { id: semanticId(term), bytes: semanticBytes(term) };
+  return { id: jsonId(term, materialObjectKind(value)), bytes: semanticBytes(term) };
 }
-function rawNi(digest) { return `ni:///sha-256;${digest.toString("base64url")}`; }
+function fileByteCommitmentId(digest) {
+  return jsonId({ algorithm: "sha-256", digestBase64url: digest.toString("base64url") }, "lenticule.infomaterial.external-file-byte-commitment");
+}
 function regularFileNodeFromDigest(digest, size, mode) {
-  return { profile: MATERIAL_PROFILE, kind: "file", mode, size, content: rawNi(digest) };
+  return { profile: MATERIAL_PROFILE, kind: "file", mode, size, content: fileByteCommitmentId(digest) };
 }
 
 export function regularFileMaterial(bytes, mode) {

@@ -2,10 +2,11 @@ import { randomUUID } from "node:crypto";
 import { Message, Role } from "@a2a-js/sdk";
 import { a2aResultParts, sendRmnTask } from "@red-cup-engineering/a2a-rmn-task-client-service";
 import { extractRmnPart, rmnPart } from "@red-cup-engineering/a2a-rmn-part-service";
-import { checkTerm, decodeSemantic, semanticBytes, semanticId } from "@red-cup-engineering/relation-model-notation-runtime";
+import { checkTerm, decodeSemantic, semanticBytes } from "@red-cup-engineering/relation-model-notation-runtime";
 import { decodeRelationalValue, encodeRelationalValue, RELATIONAL_VALUE_TYPE } from "@red-cup-engineering/relation-model-notation-runtime/relational-value";
 import { SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION } from "@red-cup-engineering/relation-model-notation-runtime/hierarchical-circuit";
 import { validateInfomaterialObservationReceipt } from "./receipt.mjs";
+import { jsonId } from "./semantic-identity.mjs";
 
 const responseParts = a2aResultParts;
 export function encodeInfomaterialObservationTaskRequest({ relativePath, maximumEntries, maximumBytes }) {
@@ -24,6 +25,6 @@ export async function requestInfomaterialObservation({ agentUrl, relativePath, m
   const message = Message.toJSON({ messageId: randomUUID(), contextId: "", taskId: "", role: Role.ROLE_USER, parts: [rmnPart(semanticBytes(request), "infomaterial-observation-task.rmn.cbor")], metadata: {}, extensions: [], referenceTaskIds: [] });
   const exchange = await sendRmnTask({ agentUrl, extensions: [SOVEREIGN_CIRCUIT_INTERFACE_EXTENSION], message, ...(signal ? { signal } : {}) }); const output = extractRmnPart(responseParts(exchange.result));
   const term = decodeSemantic(output.bytes); if (!semanticBytes(term).equals(output.bytes) || term?.[0] !== "ascribe" || term.length !== 3) throw new Error("infomaterial provider returned noncanonical RMN");
-  const value = decodeRelationalValue(term[1], term[2]); const receipt = { ...value, semanticId: semanticId(term), canonicalBytesBase64: output.bytes.toString("base64") };
+  const value = decodeRelationalValue(term[1], term[2]); const receipt = { ...value, semanticId: jsonId(term, "lenticule.infomaterial.patch-observation"), canonicalBytesBase64: output.bytes.toString("base64") };
   validateInfomaterialObservationReceipt(receipt); return { receipt, exchange };
 }

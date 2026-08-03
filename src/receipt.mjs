@@ -1,6 +1,7 @@
-import { checkTerm, decodeSemantic, semanticId } from "@red-cup-engineering/relation-model-notation-runtime";
+import { checkTerm, decodeSemantic } from "@red-cup-engineering/relation-model-notation-runtime";
 import { decodeRelationalValue } from "@red-cup-engineering/relation-model-notation-runtime/relational-value";
 import { MATERIAL_PROFILE } from "./material-merkle.mjs";
+import { jsonId } from "./semantic-identity.mjs";
 
 const NI = /^ni:\/\/\/sha-256;[A-Za-z0-9_-]{43}$/u;
 function sameScalar(left, right) { return String(left) === String(right); }
@@ -16,8 +17,8 @@ export function validateInfomaterialObservationReceipt(receipt) {
   const term = decodeSemantic(bytes);
   if (term?.[0] !== "ascribe" || term.length !== 3) throw new Error("patch receipt RMN object is not ascribed");
   checkTerm(term[2], term[1]);
-  if (semanticId(term) !== receipt.semanticId) throw new Error("patch receipt semantic identity does not match its canonical bytes");
   const value = decodeRelationalValue(term[1], term[2]);
+  if (jsonId(term, "lenticule.infomaterial.patch-observation") !== receipt.semanticId) throw new Error("patch receipt semantic identity does not match its canonical bytes");
   for (const field of ["type", "profile", "materialRoot", "rootKind", "entries", "regularFileBytes", "patchComplete", "globalInstantClaimed", "territorialCoverClaimed"]) if (!sameScalar(value[field], receipt[field])) throw new Error(`patch receipt field ${field} differs from its canonical RMN object`);
   return receipt;
 }
