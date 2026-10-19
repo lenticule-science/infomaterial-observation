@@ -32,5 +32,9 @@
     "@red-cup-engineering/semantic-content-identify-service": "0.2.2",
     "@red-cup-engineering/relation-model-notation-runtime": "7.0.0",
     "@red-cup-engineering/witness-journal-rdf-projection-service": "1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenticule-science/infomaterial-observation.git"
   }
 }
