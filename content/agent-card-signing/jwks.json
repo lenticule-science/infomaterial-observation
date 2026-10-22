@@ -1,1 +1,1 @@
-{"keys":[{"crv":"Ed25519","x":"9QW4JjtsRsD7klsY6hXROt_d0XcVf1wh8nyjy2pA88k","kty":"OKP","kid":"infomaterial-observation-2026-07-21","alg":"EdDSA","use":"sig"}]}
+{"keys":[{"crv":"Ed25519","x":"dCio9iWHIrAVxbr4UKMk5MZOxe_yrFTXteJRVzSjtdY","kty":"OKP","kid":"infomaterial-observation-2026-10-21","alg":"EdDSA","use":"sig"}]}
